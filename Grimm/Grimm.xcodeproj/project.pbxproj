@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2B0009D2BA6C2630049C945 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009C2BA6C2630049C945 /* DataModel.swift */; };
 		C2B384692B98E64F00D48E1C /* GrimmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B384682B98E64F00D48E1C /* GrimmApp.swift */; };
 		C2B3846B2B98E64F00D48E1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3846A2B98E64F00D48E1C /* ContentView.swift */; };
 		C2B3846D2B98E65100D48E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B3846C2B98E65100D48E1C /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2B0009C2BA6C2630049C945 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C2B384652B98E64F00D48E1C /* Grimm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grimm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B384682B98E64F00D48E1C /* GrimmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrimmApp.swift; sourceTree = "<group>"; };
 		C2B3846A2B98E64F00D48E1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		C2B384672B98E64F00D48E1C /* Grimm */ = {
 			isa = PBXGroup;
 			children = (
+				C2B0009C2BA6C2630049C945 /* DataModel.swift */,
 				C2B384682B98E64F00D48E1C /* GrimmApp.swift */,
 				C2B3846A2B98E64F00D48E1C /* ContentView.swift */,
 				C2B3846C2B98E65100D48E1C /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			files = (
 				C2B3846B2B98E64F00D48E1C /* ContentView.swift in Sources */,
 				C2B384692B98E64F00D48E1C /* GrimmApp.swift in Sources */,
+				C2B0009D2BA6C2630049C945 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
