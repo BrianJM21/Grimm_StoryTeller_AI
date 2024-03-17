@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C2B0009D2BA6C2630049C945 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009C2BA6C2630049C945 /* DataModel.swift */; };
+		C2B0009D2BA6C2630049C945 /* TaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009C2BA6C2630049C945 /* TaleModel.swift */; };
+		C2B0009F2BA6CF490049C945 /* GenTaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009E2BA6CF490049C945 /* GenTaleView.swift */; };
+		C2B000A22BA6D4E20049C945 /* GenTaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B000A12BA6D4E20049C945 /* GenTaleViewModel.swift */; };
+		C2B000A42BA6D9420049C945 /* GenTaleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B000A32BA6D9420049C945 /* GenTaleTextField.swift */; };
+		C2B000A72BA6DA3B0049C945 /* ClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B000A62BA6DA3B0049C945 /* ClearButtonModifier.swift */; };
 		C2B384692B98E64F00D48E1C /* GrimmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B384682B98E64F00D48E1C /* GrimmApp.swift */; };
 		C2B3846B2B98E64F00D48E1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3846A2B98E64F00D48E1C /* ContentView.swift */; };
 		C2B3846D2B98E65100D48E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B3846C2B98E65100D48E1C /* Assets.xcassets */; };
@@ -15,7 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C2B0009C2BA6C2630049C945 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C2B0009C2BA6C2630049C945 /* TaleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaleModel.swift; sourceTree = "<group>"; };
+		C2B0009E2BA6CF490049C945 /* GenTaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleView.swift; sourceTree = "<group>"; };
+		C2B000A12BA6D4E20049C945 /* GenTaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleViewModel.swift; sourceTree = "<group>"; };
+		C2B000A32BA6D9420049C945 /* GenTaleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleTextField.swift; sourceTree = "<group>"; };
+		C2B000A62BA6DA3B0049C945 /* ClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonModifier.swift; sourceTree = "<group>"; };
 		C2B384652B98E64F00D48E1C /* Grimm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grimm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B384682B98E64F00D48E1C /* GrimmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrimmApp.swift; sourceTree = "<group>"; };
 		C2B3846A2B98E64F00D48E1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +42,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2B000A02BA6D4680049C945 /* GenTale */ = {
+			isa = PBXGroup;
+			children = (
+				C2B0009E2BA6CF490049C945 /* GenTaleView.swift */,
+				C2B000A12BA6D4E20049C945 /* GenTaleViewModel.swift */,
+				C2B000A32BA6D9420049C945 /* GenTaleTextField.swift */,
+			);
+			path = GenTale;
+			sourceTree = "<group>";
+		};
+		C2B000A52BA6DA110049C945 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C2B000A62BA6DA3B0049C945 /* ClearButtonModifier.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C2B3845C2B98E64F00D48E1C = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +79,11 @@
 		C2B384672B98E64F00D48E1C /* Grimm */ = {
 			isa = PBXGroup;
 			children = (
-				C2B0009C2BA6C2630049C945 /* DataModel.swift */,
 				C2B384682B98E64F00D48E1C /* GrimmApp.swift */,
 				C2B3846A2B98E64F00D48E1C /* ContentView.swift */,
+				C2B0009C2BA6C2630049C945 /* TaleModel.swift */,
+				C2B000A02BA6D4680049C945 /* GenTale */,
+				C2B000A52BA6DA110049C945 /* Utils */,
 				C2B3846C2B98E65100D48E1C /* Assets.xcassets */,
 				C2B3846E2B98E65100D48E1C /* Preview Content */,
 			);
@@ -140,9 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B000A42BA6D9420049C945 /* GenTaleTextField.swift in Sources */,
+				C2B0009F2BA6CF490049C945 /* GenTaleView.swift in Sources */,
 				C2B3846B2B98E64F00D48E1C /* ContentView.swift in Sources */,
+				C2B000A72BA6DA3B0049C945 /* ClearButtonModifier.swift in Sources */,
 				C2B384692B98E64F00D48E1C /* GrimmApp.swift in Sources */,
-				C2B0009D2BA6C2630049C945 /* DataModel.swift in Sources */,
+				C2B000A22BA6D4E20049C945 /* GenTaleViewModel.swift in Sources */,
+				C2B0009D2BA6C2630049C945 /* TaleModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +319,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,7 +352,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
