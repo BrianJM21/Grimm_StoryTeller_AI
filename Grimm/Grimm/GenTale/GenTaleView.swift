@@ -14,6 +14,8 @@ struct GenTaleView: View {
     @State private var selectedLength: TaleModel.Length = .paragraphs
     @State private var numberOf = "5"
     
+    let chatGPTClient = ChatGPTClient()
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -63,7 +65,14 @@ struct GenTaleView: View {
                 }
                 GenTaleTextField(text: $tale.author, placeHolder: "Los Hermanos Grimm...", title: "Autor", genSuggestion: .author)
                 Button {
-                    dump(tale)
+                    Task {
+                        do {
+                            chatGPTClient.prompt = "Hola, cómo estás?"
+                            try await chatGPTClient.generateText()
+                        } catch {
+                            print(error)
+                        }
+                    }
                 } label: {
                     VStack {
                         Image(systemName: "hands.and.sparkles.fill")
@@ -79,14 +88,6 @@ struct GenTaleView: View {
         }
     }
 }
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif
 
 #Preview {
     GenTaleView()

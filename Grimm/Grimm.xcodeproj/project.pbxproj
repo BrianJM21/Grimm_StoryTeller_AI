@@ -10,6 +10,8 @@
 		C20A1B512BA75CB600E8D139 /* GenTaleCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B502BA75CB600E8D139 /* GenTaleCharacterView.swift */; };
 		C20A1B562BA79A6700E8D139 /* GenTaleTextNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B552BA79A6700E8D139 /* GenTaleTextNumberField.swift */; };
 		C20A1B582BA79C0C00E8D139 /* GenSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B572BA79C0C00E8D139 /* GenSuggestion.swift */; };
+		C20A1B5F2BA7D6EF00E8D139 /* ChatGPTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B5E2BA7D6EF00E8D139 /* ChatGPTClient.swift */; };
+		C20A1B612BA7D70300E8D139 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B602BA7D70300E8D139 /* APIKey.swift */; };
 		C2B0009D2BA6C2630049C945 /* TaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009C2BA6C2630049C945 /* TaleModel.swift */; };
 		C2B0009F2BA6CF490049C945 /* GenTaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009E2BA6CF490049C945 /* GenTaleView.swift */; };
 		C2B000A42BA6D9420049C945 /* GenTaleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B000A32BA6D9420049C945 /* GenTaleTextField.swift */; };
@@ -24,6 +26,9 @@
 		C20A1B502BA75CB600E8D139 /* GenTaleCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleCharacterView.swift; sourceTree = "<group>"; };
 		C20A1B552BA79A6700E8D139 /* GenTaleTextNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleTextNumberField.swift; sourceTree = "<group>"; };
 		C20A1B572BA79C0C00E8D139 /* GenSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenSuggestion.swift; sourceTree = "<group>"; };
+		C20A1B5E2BA7D6EF00E8D139 /* ChatGPTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTClient.swift; sourceTree = "<group>"; };
+		C20A1B602BA7D70300E8D139 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		C20A1B622BA7E31E00E8D139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C2B0009C2BA6C2630049C945 /* TaleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaleModel.swift; sourceTree = "<group>"; };
 		C2B0009E2BA6CF490049C945 /* GenTaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleView.swift; sourceTree = "<group>"; };
 		C2B000A32BA6D9420049C945 /* GenTaleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleTextField.swift; sourceTree = "<group>"; };
@@ -60,6 +65,15 @@
 				C2B0009C2BA6C2630049C945 /* TaleModel.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		C20A1B5D2BA7D6DD00E8D139 /* ChatGPT */ = {
+			isa = PBXGroup;
+			children = (
+				C20A1B5E2BA7D6EF00E8D139 /* ChatGPTClient.swift */,
+				C20A1B602BA7D70300E8D139 /* APIKey.swift */,
+			);
+			path = ChatGPT;
 			sourceTree = "<group>";
 		};
 		C2B000A02BA6D4680049C945 /* GenTale */ = {
@@ -100,6 +114,7 @@
 		C2B384672B98E64F00D48E1C /* Grimm */ = {
 			isa = PBXGroup;
 			children = (
+				C20A1B5D2BA7D6DD00E8D139 /* ChatGPT */,
 				C2B384682B98E64F00D48E1C /* GrimmApp.swift */,
 				C2B3846A2B98E64F00D48E1C /* GrimView.swift */,
 				C20A1B592BA7C39B00E8D139 /* DataModel */,
@@ -107,6 +122,7 @@
 				C20A1B542BA791FE00E8D139 /* GenTaleCharacterView */,
 				C2B000A52BA6DA110049C945 /* GenTaleTextFields */,
 				C2B3846C2B98E65100D48E1C /* Assets.xcassets */,
+				C20A1B622BA7E31E00E8D139 /* Info.plist */,
 				C2B3846E2B98E65100D48E1C /* Preview Content */,
 			);
 			path = Grimm;
@@ -196,7 +212,9 @@
 				C2B3846B2B98E64F00D48E1C /* GrimView.swift in Sources */,
 				C2B000A72BA6DA3B0049C945 /* ClearButtonModifier.swift in Sources */,
 				C2B384692B98E64F00D48E1C /* GrimmApp.swift in Sources */,
+				C20A1B612BA7D70300E8D139 /* APIKey.swift in Sources */,
 				C20A1B512BA75CB600E8D139 /* GenTaleCharacterView.swift in Sources */,
+				C20A1B5F2BA7D6EF00E8D139 /* ChatGPTClient.swift in Sources */,
 				C20A1B582BA79C0C00E8D139 /* GenSuggestion.swift in Sources */,
 				C2B0009D2BA6C2630049C945 /* TaleModel.swift in Sources */,
 			);
@@ -332,9 +350,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Grimm/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6H9A597MB9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Grimm/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Grimm: StoryTellerAI";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -365,9 +384,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Grimm/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6H9A597MB9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Grimm/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Grimm: StoryTellerAI";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
