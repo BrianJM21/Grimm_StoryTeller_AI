@@ -5,35 +5,45 @@
 //  Created by Brian Jiménez Moedano on 17/03/24.
 //
 
-struct Tale {
-    let theme: String
-    let characters: [Character]
-    let place: String
-    let moral: String
-    let length: (type: Length, numberOf: Int)
-    let stage: Stage
-    
-    struct Character {
-        let name: String
-        let age: Int
-        let specie: String
-        let profession: String
-        let personality: String
-        let role: Role
+import Foundation
 
-        enum Role: String {
-            case hero = "heroe"
+struct TaleModel {
+    var theme: String = ""
+    var characters: [Character] = []
+    var place: String = ""
+    var moral: String = ""
+    var length: (type: Length, numberOf: Int) = (type: .paragraphs, numberOf: 5)
+    var stage: Stage = .child
+    var author: String = ""
+    
+    struct Character: Identifiable {
+        var id = UUID()
+        var name: String = ""
+        var age: Int = 0
+        var sex: Sex = .male
+        var specie: String = ""
+        var profession: String = ""
+        var personality: String = ""
+        var role: Role = .neutral
+        
+        enum Sex: String, CaseIterable {
+            case male = "hombre"
+            case female = "mujer"
+        }
+
+        enum Role: String, CaseIterable {
+            case hero = "héroe"
             case villain = "villano"
             case neutral = "neutro"
         }
     }
     
-    enum Length: String {
+    enum Length: String, CaseIterable {
         case words
         case paragraphs
     }
 
-    enum Stage: String {
+    enum Stage: String, CaseIterable {
         case baby = "bebé"
         case preschooler = "preescolar"
         case child = "infante"

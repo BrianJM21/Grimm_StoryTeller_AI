@@ -9,12 +9,13 @@ import SwiftUI
 
 struct GenTaleView: View {
     
-    @State var viewModel = GenTaleViewModel()
+    @State var tale = TaleModel()
     
     var body: some View {
         VStack {
-            GenTaleTextField(text: $viewModel.theme, placeHolder: "Un reino con caballeros, princesas y dragones...", title: "Temática")
-            GenTaleTextField(text: $viewModel.place, placeHolder: "Un bosque...", title: "Lugar")
+            GenTaleTextField(text: $tale.theme, placeHolder: "Un reino con caballeros, princesas y dragones...", title: "Temática", genSuggestion: .theme)
+            GenTaleCharacterView(characters: $tale.characters)
+            GenTaleTextField(text: $tale.place, placeHolder: "Un bosque...", title: "Lugar", genSuggestion: .place)
         }
     }
 }

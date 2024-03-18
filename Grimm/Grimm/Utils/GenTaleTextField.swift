@@ -10,9 +10,10 @@ import SwiftUI
 struct GenTaleTextField: View {
     
     @Binding var text: String
-    @State var localText: String = ""
+    @State private var localText: String = ""
     let placeHolder: String
     let title: String
+    var genSuggestion: GenSuggestion
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,8 +28,7 @@ struct GenTaleTextField: View {
                         text = value
                     })
                 Button {
-                    // TODO: Gen suggestion
-                    print("Gen suggestion", text)
+                    GenSuggestion.generateSuggestion(for: genSuggestion)
                 } label: {
                     Image(systemName: "sparkles")
                 }
@@ -36,9 +36,12 @@ struct GenTaleTextField: View {
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
         }
+        .onAppear {
+            localText = text
+        }
     }
 }
 
 #Preview {
-    GenTaleTextField(text: .constant(""), placeHolder: "Escribe tu texto aquí", title: "Título")
+    GenTaleTextField(text: .constant(""), placeHolder: "Escribe tu texto aquí", title: "Título", genSuggestion: .none)
 }
