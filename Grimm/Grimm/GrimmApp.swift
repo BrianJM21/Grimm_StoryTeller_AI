@@ -11,7 +11,7 @@ import SwiftUI
 struct GrimmApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GrimView()
         }
     }
 }

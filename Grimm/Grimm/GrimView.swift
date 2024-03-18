@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  GrimmView.swift
 //  Grimm
 //
 //  Created by Brian Jiménez Moedano on 06/03/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct GrimView: View {
     
     @State var tabIndex: Int = 0
     
@@ -30,5 +30,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    GrimView()
 }
