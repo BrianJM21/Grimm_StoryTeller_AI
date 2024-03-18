@@ -70,7 +70,7 @@ struct GenTaleView: View {
                             chatGPTClient.prompt = "Hola, cómo estás?"
                             try await chatGPTClient.generateText()
                         } catch {
-                            print(error)
+                            print("ERROR: ", error)
                         }
                     }
                 } label: {
