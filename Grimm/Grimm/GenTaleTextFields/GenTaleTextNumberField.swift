@@ -10,10 +10,12 @@ import SwiftUI
 struct GenTaleTextNumberField: View {
     
     @Binding var textNumber: Int
-    @State private var localTextNumber: String = ""
+    
     let placeHolder: String
     let title: String
     var genSuggestion: GenSuggestion
+    
+    @State private var localTextNumber: String = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,7 +35,7 @@ struct GenTaleTextNumberField: View {
                         }
                     }
                 Button {
-                    GenSuggestion.generateSuggestion(for: genSuggestion)
+                    localTextNumber = String(Int.random(in: 1...200))
                 } label: {
                     Image(systemName: "sparkles")
                 }

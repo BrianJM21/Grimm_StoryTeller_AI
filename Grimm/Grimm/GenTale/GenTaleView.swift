@@ -10,8 +10,7 @@ import SwiftUI
 struct GenTaleView: View {
     
     @Binding var taleToSave: String
-    
-    @State var tale = TaleModel()
+    @State private var tale = TaleModel()
     
     @State private var selectedStage: TaleModel.Stage = .child
     @State private var selectedLength: TaleModel.Length = .paragraphs
@@ -27,6 +26,10 @@ struct GenTaleView: View {
     
     let chatGPT = ChatGPTAPIClient()
     
+    private func generatePrompt() -> String {
+        return ""
+    }
+    
     var body: some View {
         LoaderView(isShowing: $showLoader) {
             ScrollView {
@@ -38,10 +41,10 @@ struct GenTaleView: View {
                             .font(.headline)
                     }
                     .padding(EdgeInsets(top: 50, leading: 0, bottom: 50, trailing: 0))
-                    GenTaleTextField(text: $tale.theme, placeHolder: "Un reino con caballeros, princesas y dragones...", title: "Temática", genSuggestion: .theme)
+                    GenTaleTextField(showLoader: $showLoader, text: $tale.theme, placeHolder: "Un reino con caballeros, princesas y dragones...", title: "Temática", genSuggestion: .theme)
                     GenTaleCharacterView(characters: $tale.characters)
-                    GenTaleTextField(text: $tale.place, placeHolder: "Un bosque...", title: "Lugar", genSuggestion: .place)
-                    GenTaleTextField(text: $tale.moral, placeHolder: "Valorar la amistad...", title: "Moraleja", genSuggestion: .moral)
+                    GenTaleTextField(showLoader: $showLoader, text: $tale.place, placeHolder: "Un bosque...", title: "Lugar", genSuggestion: .place)
+                    GenTaleTextField(showLoader: $showLoader, text: $tale.moral, placeHolder: "Valorar la amistad...", title: "Moraleja", genSuggestion: .moral)
                     HStack {
                         Text("Formato")
                             .font(.headline)
@@ -75,12 +78,13 @@ struct GenTaleView: View {
                             }
                         }
                     }
-                    GenTaleTextField(text: $tale.author, placeHolder: "Los Hermanos Grimm...", title: "Autor", genSuggestion: .author)
+                    GenTaleTextField(showLoader: $showLoader, text: $tale.author, placeHolder: "Los Hermanos Grimm...", title: "Autor", genSuggestion: .author)
                     Button {
                         Task {
                             do {
                                 showLoader.toggle()
-                                chatGPTResponse = try await chatGPT.generateTextWithPrompt("Hola, ¿quién eres?")
+                                let prompt = generatePrompt()
+                                chatGPTResponse = try await chatGPT.generateTextWithPrompt(prompt)
                             } catch {
                                 showLoader.toggle()
                                 showError.toggle()
@@ -108,7 +112,11 @@ struct GenTaleView: View {
                 return Alert(title: Text("HTTP ERROR"), message: Text(errorMessage))
             }
             .sheet(isPresented: $showGPTResponse) {
-                Text(chatGPTResponse.isEmpty ? "Ocurrió un problema al generar cuento" : chatGPTResponse)
+                ScrollView {
+                    Text(chatGPTResponse.isEmpty ? "Ocurrió un problema al generar cuento" : chatGPTResponse)
+                        .padding()
+                }
+                .textSelection(.enabled)
             }
         }
     }

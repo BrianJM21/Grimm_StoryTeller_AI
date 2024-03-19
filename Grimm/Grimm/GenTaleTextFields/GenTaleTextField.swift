@@ -9,11 +9,20 @@ import SwiftUI
 
 struct GenTaleTextField: View {
     
+    @Binding var showLoader: Bool
     @Binding var text: String
-    @State private var localText: String = ""
+    
     let placeHolder: String
     let title: String
     var genSuggestion: GenSuggestion
+    
+    @State private var localText: String = ""
+    
+    @State private var showError = false
+    @State private var errorMessage = ""
+    
+    @State private var suggestionText = ""
+    @State private var showSuggestionText = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +37,16 @@ struct GenTaleTextField: View {
                         text = value
                     })
                 Button {
-                    GenSuggestion.generateSuggestion(for: genSuggestion)
+                    Task {
+                        do {
+                            showLoader.toggle()
+                            suggestionText = try await GenSuggestion.generateSuggestion(for: genSuggestion)
+                        } catch {
+                            showLoader.toggle()
+                            showError.toggle()
+                            errorMessage = error.localizedDescription
+                        }
+                    }
                 } label: {
                     Image(systemName: "sparkles")
                 }
@@ -39,9 +57,26 @@ struct GenTaleTextField: View {
         .onAppear {
             localText = text
         }
+        .onChange(of: suggestionText) { suggestionText in
+            showLoader.toggle()
+            showSuggestionText.toggle()
+        }
+        .onTapGesture {
+            hideKeyboard()
+        }
+        .alert(isPresented: $showError) {
+            return Alert(title: Text("HTTP ERROR"), message: Text(errorMessage))
+        }
+        .sheet(isPresented: $showSuggestionText) {
+            ScrollView {
+                Text(suggestionText.isEmpty ? "Ocurrió un problema al generar sugerencia" : suggestionText)
+                    .padding()
+            }
+            .textSelection(.enabled)
+        }
     }
 }
 
 #Preview {
-    GenTaleTextField(text: .constant(""), placeHolder: "Escribe tu texto aquí", title: "Título", genSuggestion: .none)
+    GenTaleTextField(showLoader: .constant(false), text: .constant(""), placeHolder: "Escribe tu texto aquí", title: "Título", genSuggestion: .none)
 }

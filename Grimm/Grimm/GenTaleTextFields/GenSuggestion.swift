@@ -17,38 +17,44 @@ enum GenSuggestion {
     case author
     case none
     
-    static func generateSuggestion(for suggestion: Self) {
+    static func generateSuggestion(for suggestion: Self) async throws -> String {
+        
+        let chatGPT = ChatGPTAPIClient()
+        let rootPrompt = "Dame tres sugerencias sobre "
+        let tailPrompt = " al escribir un cuento para niños"
+        
         switch suggestion {
             
         case .theme:
-            print("generate suggestion for Theme")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) temática \(tailPrompt)")
             
         case .nameCharacter:
-            print("generate suggestion for Name Character")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) nombre de personajes \(tailPrompt)")
             
         case .ageCharacter:
-            print("generate suggestion for Age Character")
+            return String(Int.random(in: 1...200))
             
         case .specieCharacter:
-            print("generate suggestion for Specie Character")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) especies de personaje \(tailPrompt)")
             
         case .professionCharacter:
-            print("generate suggestion for Profession Character")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) profesiones de personaje \(tailPrompt)")
             
         case .personalityCharacter:
-            print("generate suggestion for Personality Character")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) personalidades de personaje \(tailPrompt)")
             
         case .place:
-            print("generate suggestion for Place")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) lugares \(tailPrompt)")
             
         case .moral:
-            print("generate suggestion for Moral")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) moralejas \(tailPrompt)")
             
         case .author:
-            print("generate suggestion for Author")
+            return try await chatGPT.generateTextWithPrompt("\(rootPrompt) autores que han escrito cuentos infantiles")
             
         case .none:
             break
         }
+        return ""
     }
 }
