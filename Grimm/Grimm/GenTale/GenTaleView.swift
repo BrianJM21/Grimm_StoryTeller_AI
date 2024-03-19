@@ -9,12 +9,18 @@ import SwiftUI
 
 struct GenTaleView: View {
     
+    @Binding var taleToSave: String
+    
     @State var tale = TaleModel()
     @State private var selectedStage: TaleModel.Stage = .child
     @State private var selectedLength: TaleModel.Length = .paragraphs
     @State private var numberOf = "5"
+    @State private var showGPTResponse = false
+    @State private var chatGPTResponse = ""
+    @State private var showError = false
+    @State private var errorMessage = ""
     
-    let chatGPTClient = ChatGPTClient()
+    let chatGPT = ChatGPTAPIClient()
     
     var body: some View {
         ScrollView {
@@ -67,10 +73,11 @@ struct GenTaleView: View {
                 Button {
                     Task {
                         do {
-                            chatGPTClient.prompt = "Hola, cómo estás?"
-                            try await chatGPTClient.generateText()
+                            chatGPTResponse = try await chatGPT.generateTextWithPrompt("Hola, cómo estás?")
+                            showGPTResponse = true
                         } catch {
-                            print("ERROR: ", error)
+                            showError = true
+                            errorMessage = error.localizedDescription
                         }
                     }
                 } label: {
@@ -81,14 +88,22 @@ struct GenTaleView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()
+                .sheet(isPresented: $showGPTResponse) {
+                    Text(chatGPTResponse.isEmpty ? "Ocurrió un problema al generar cuento" : chatGPTResponse)
+                }
             }
         }
         .onTapGesture {
             hideKeyboard()
         }
+        .alert(isPresented: $showError) {
+            showError = false
+            errorMessage = ""
+            return Alert(title: Text("HTTP ERROR"), message: Text(errorMessage))
+        }
     }
 }
 
 #Preview {
-    GenTaleView()
+    GenTaleView(taleToSave: .constant(""))
 }

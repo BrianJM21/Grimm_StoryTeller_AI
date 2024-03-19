@@ -10,8 +10,7 @@
 		C20A1B512BA75CB600E8D139 /* GenTaleCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B502BA75CB600E8D139 /* GenTaleCharacterView.swift */; };
 		C20A1B562BA79A6700E8D139 /* GenTaleTextNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B552BA79A6700E8D139 /* GenTaleTextNumberField.swift */; };
 		C20A1B582BA79C0C00E8D139 /* GenSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B572BA79C0C00E8D139 /* GenSuggestion.swift */; };
-		C20A1B5F2BA7D6EF00E8D139 /* ChatGPTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B5E2BA7D6EF00E8D139 /* ChatGPTClient.swift */; };
-		C20A1B612BA7D70300E8D139 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B602BA7D70300E8D139 /* APIKey.swift */; };
+		C20A1B5F2BA7D6EF00E8D139 /* ChatGPTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A1B5E2BA7D6EF00E8D139 /* ChatGPTAPIClient.swift */; };
 		C2B0009D2BA6C2630049C945 /* TaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009C2BA6C2630049C945 /* TaleModel.swift */; };
 		C2B0009F2BA6CF490049C945 /* GenTaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B0009E2BA6CF490049C945 /* GenTaleView.swift */; };
 		C2B000A42BA6D9420049C945 /* GenTaleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B000A32BA6D9420049C945 /* GenTaleTextField.swift */; };
@@ -20,14 +19,15 @@
 		C2B3846B2B98E64F00D48E1C /* GrimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3846A2B98E64F00D48E1C /* GrimView.swift */; };
 		C2B3846D2B98E65100D48E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B3846C2B98E65100D48E1C /* Assets.xcassets */; };
 		C2B384702B98E65100D48E1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B3846F2B98E65100D48E1C /* Preview Assets.xcassets */; };
+		C2F244BE2BA9B1DC00E1E562 /* ChatGPTRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F244BD2BA9B1DC00E1E562 /* ChatGPTRequestModel.swift */; };
+		C2F244C02BA9B1EC00E1E562 /* ChatGPTResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F244BF2BA9B1EC00E1E562 /* ChatGPTResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C20A1B502BA75CB600E8D139 /* GenTaleCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleCharacterView.swift; sourceTree = "<group>"; };
 		C20A1B552BA79A6700E8D139 /* GenTaleTextNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleTextNumberField.swift; sourceTree = "<group>"; };
 		C20A1B572BA79C0C00E8D139 /* GenSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenSuggestion.swift; sourceTree = "<group>"; };
-		C20A1B5E2BA7D6EF00E8D139 /* ChatGPTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTClient.swift; sourceTree = "<group>"; };
-		C20A1B602BA7D70300E8D139 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		C20A1B5E2BA7D6EF00E8D139 /* ChatGPTAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTAPIClient.swift; sourceTree = "<group>"; };
 		C20A1B622BA7E31E00E8D139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C2B0009C2BA6C2630049C945 /* TaleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaleModel.swift; sourceTree = "<group>"; };
 		C2B0009E2BA6CF490049C945 /* GenTaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenTaleView.swift; sourceTree = "<group>"; };
@@ -38,6 +38,8 @@
 		C2B3846A2B98E64F00D48E1C /* GrimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrimView.swift; sourceTree = "<group>"; };
 		C2B3846C2B98E65100D48E1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2B3846F2B98E65100D48E1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C2F244BD2BA9B1DC00E1E562 /* ChatGPTRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTRequestModel.swift; sourceTree = "<group>"; };
+		C2F244BF2BA9B1EC00E1E562 /* ChatGPTResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				C2B0009C2BA6C2630049C945 /* TaleModel.swift */,
+				C2F244BD2BA9B1DC00E1E562 /* ChatGPTRequestModel.swift */,
+				C2F244BF2BA9B1EC00E1E562 /* ChatGPTResponseModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -70,8 +74,7 @@
 		C20A1B5D2BA7D6DD00E8D139 /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
-				C20A1B5E2BA7D6EF00E8D139 /* ChatGPTClient.swift */,
-				C20A1B602BA7D70300E8D139 /* APIKey.swift */,
+				C20A1B5E2BA7D6EF00E8D139 /* ChatGPTAPIClient.swift */,
 			);
 			path = ChatGPT;
 			sourceTree = "<group>";
@@ -206,15 +209,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F244C02BA9B1EC00E1E562 /* ChatGPTResponseModel.swift in Sources */,
 				C2B000A42BA6D9420049C945 /* GenTaleTextField.swift in Sources */,
 				C20A1B562BA79A6700E8D139 /* GenTaleTextNumberField.swift in Sources */,
 				C2B0009F2BA6CF490049C945 /* GenTaleView.swift in Sources */,
 				C2B3846B2B98E64F00D48E1C /* GrimView.swift in Sources */,
 				C2B000A72BA6DA3B0049C945 /* ClearButtonModifier.swift in Sources */,
 				C2B384692B98E64F00D48E1C /* GrimmApp.swift in Sources */,
-				C20A1B612BA7D70300E8D139 /* APIKey.swift in Sources */,
 				C20A1B512BA75CB600E8D139 /* GenTaleCharacterView.swift in Sources */,
-				C20A1B5F2BA7D6EF00E8D139 /* ChatGPTClient.swift in Sources */,
+				C20A1B5F2BA7D6EF00E8D139 /* ChatGPTAPIClient.swift in Sources */,
+				C2F244BE2BA9B1DC00E1E562 /* ChatGPTRequestModel.swift in Sources */,
 				C20A1B582BA79C0C00E8D139 /* GenSuggestion.swift in Sources */,
 				C2B0009D2BA6C2630049C945 /* TaleModel.swift in Sources */,
 			);

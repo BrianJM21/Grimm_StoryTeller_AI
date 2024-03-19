@@ -9,22 +9,29 @@ import SwiftUI
 
 struct GrimView: View {
     
-    @State var tabIndex: Int = 0
+    @AppStorage("savedTale")
+    private var savedTale = ""
+    
+    @State private var tabIndex: Int = 0
+    @State var taleToSave = ""
     
     var body: some View {
         TabView(selection: $tabIndex) {
-            GenTaleView()
+            GenTaleView(taleToSave: $taleToSave)
                 .tag(0)
                 .tabItem {
                     Image(systemName: "text.book.closed")
-                    Text("Gen a Tale")
+                    Text("Genera Cuento")
                 }
-            Text("Tab Content 2")
+            Text(savedTale.isEmpty ? "No tienes cuentos guardados" : savedTale)
                 .tag(1)
                 .tabItem {
                     Image(systemName: "books.vertical")
-                    Text("Saved Tales")
+                    Text("Biblioteca")
                 }
+        }
+        .onChange(of: taleToSave) { taleToSave in
+            savedTale = taleToSave
         }
     }
 }
