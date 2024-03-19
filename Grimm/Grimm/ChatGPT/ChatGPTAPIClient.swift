@@ -8,7 +8,6 @@
 import Foundation
 
 class ChatGPTAPIClient {
-    private let apiKey = "write your Open AI - API Key here"
     private let url = URL(string: "https://api.openai.com/v1/chat/completions")!
     
     private let encoder = {
@@ -61,14 +60,36 @@ class ChatGPTAPIClient {
                 }
             } else {
                 print("---------- JSON ---------")
-                print("COULD NOT DECODE JSON")
+                print("INVALID JSON IN DECODE")
                 print("-------------------------")
+                throw ChatGPTAPIClientError.jsonDecode
             }
         } else {
             print("----- RESPONSE CODE -----")
-            print("NO RESPONSE CODE FOUND")
+            print("NO 200 STATUS CODE RESPONSE")
             print("-------------------------")
+            throw ChatGPTAPIClientError.statusCode
         }
-        return "NO RESPONSE AVAILABLE"
+        print("------ NO RESPONSE ------")
+        print("COULD NOT GET RESPONSE")
+        print("-------------------------")
+        throw ChatGPTAPIClientError.noResponse
+    }
+    
+    private enum ChatGPTAPIClientError: Error {
+        case statusCode
+        case noResponse
+        case jsonDecode
+        
+        var errorDescription: String? {
+            switch self {
+            case .statusCode:
+                return NSLocalizedString("Petición incorrecta al comunicarse con el servidor.", comment: "")
+            case .noResponse:
+                return NSLocalizedString("No se pudo obtener respuesta del servidor.", comment: "")
+            case .jsonDecode:
+                return NSLocalizedString("Ocurrió un problema al querer decodificar el JSON de respuesta.", comment: "")
+            }
+        }
     }
 }
