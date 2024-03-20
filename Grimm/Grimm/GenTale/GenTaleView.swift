@@ -38,7 +38,7 @@ struct GenTaleView: View {
         for character in tale.characters {
             characterPrompt = "\(characterPrompt)Que incluya un personaje con el nombre de \(character.name) cuya edad es \(character.age) su sexo es \(character.sex.rawValue) perteneciente a la especie \(character.specie) con la profesión de \(character.profession) con una personalidad \(character.personality) y deberá tener un rol de \(character.role.rawValue)\n"
         }
-        let tailPrompt = "Si alguna de las características mencionadas es inapropiada para el público objetivo, invalida la estructura del cuento o es imposible de cumplir, reemplazala por algo que se adecue al cuento."
+        let tailPrompt = "Si alguna de las características mencionadas es inapropiada para el público objetivo, resta coherencia a la estructura del cuento o es imposible de cumplir, reemplazala por algo que se adecue al cuento."
         
         let finalPrompt = "\(rootPrompt)\n\(themePrompt)\n\(characterPrompt)\n\(placePrompt)\n\(moralPrompt)\n\(lengthPrompt)\n\(stagePrompt)\n\(authorPrompt)\n\(tailPrompt)"
         
