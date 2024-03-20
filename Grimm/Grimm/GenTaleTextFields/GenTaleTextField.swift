@@ -70,7 +70,7 @@ struct GenTaleTextField: View {
         .sheet(isPresented: $showSuggestionText) {
             ScrollView {
                 Text(suggestionText.isEmpty ? "Ocurrió un problema al generar sugerencia" : suggestionText)
-                    .padding()
+                    .padding(EdgeInsets(top: 50, leading: 20, bottom: 0, trailing: 20))
             }
             .textSelection(.enabled)
         }

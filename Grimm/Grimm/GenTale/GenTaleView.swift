@@ -27,7 +27,22 @@ struct GenTaleView: View {
     let chatGPT = ChatGPTAPIClient()
     
     private func generatePrompt() -> String {
-        return ""
+        let rootPrompt = "Genera un cuento con las siguientes características: "
+        let themePrompt = "Que tenga la siguiente temática general: \(tale.theme)"
+        let placePrompt = "Que en su desarrollo se use o mencione este lugar: \(tale.place)"
+        let moralPrompt = "Que se maneje la siguiente moraleja: \(tale.moral)"
+        let lengthPrompt = "Que tenga una longitud de \(tale.length.numberOf) \(tale.length.type.rawValue)"
+        let stagePrompt = "Que sea adecuado para un \(tale.stage.rawValue)"
+        let authorPrompt = "Que tenga un estilo similar al del autor de libros : \(tale.author)"
+        var characterPrompt = ""
+        for character in tale.characters {
+            characterPrompt = "\(characterPrompt)Que incluya un personaje con el nombre de \(character.name) cuya edad es \(character.age) su sexo es \(character.sex.rawValue) perteneciente a la especie \(character.specie) con la profesión de \(character.profession) con una personalidad \(character.personality) y deberá tener un rol de \(character.role.rawValue)\n"
+        }
+        let tailPrompt = "Si alguna de las características mencionadas es inapropiada para el público objetivo, invalida la estructura del cuento o es imposible de cumplir, reemplazala por algo que se adecue al cuento."
+        
+        let finalPrompt = "\(rootPrompt)\n\(themePrompt)\n\(characterPrompt)\n\(placePrompt)\n\(moralPrompt)\n\(lengthPrompt)\n\(stagePrompt)\n\(authorPrompt)\n\(tailPrompt)"
+        
+        return finalPrompt
     }
     
     var body: some View {
@@ -112,9 +127,16 @@ struct GenTaleView: View {
                 return Alert(title: Text("HTTP ERROR"), message: Text(errorMessage))
             }
             .sheet(isPresented: $showGPTResponse) {
+                Button {
+                    taleToSave = chatGPTResponse
+                } label: {
+                    Text("Guardar")
+                }
+                .buttonStyle(.borderedProminent)
+                .padding()
                 ScrollView {
                     Text(chatGPTResponse.isEmpty ? "Ocurrió un problema al generar cuento" : chatGPTResponse)
-                        .padding()
+                        .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 20))
                 }
                 .textSelection(.enabled)
             }

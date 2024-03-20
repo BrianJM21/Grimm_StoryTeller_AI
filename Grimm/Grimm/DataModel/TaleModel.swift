@@ -39,8 +39,8 @@ struct TaleModel {
     }
     
     enum Length: String, CaseIterable {
-        case words
-        case paragraphs
+        case words = "palabras"
+        case paragraphs = "parrafos"
     }
 
     enum Stage: String, CaseIterable {

@@ -23,7 +23,11 @@ struct GrimView: View {
                     Image(systemName: "text.book.closed")
                     Text("Genera Cuento")
                 }
-            Text(savedTale.isEmpty ? "No tienes cuentos guardados" : savedTale)
+            ScrollView {
+                Text(savedTale.isEmpty ? "No tienes cuentos guardados" : savedTale)
+                    .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 20))
+            }
+            .textSelection(.enabled)
                 .tag(1)
                 .tabItem {
                     Image(systemName: "books.vertical")
